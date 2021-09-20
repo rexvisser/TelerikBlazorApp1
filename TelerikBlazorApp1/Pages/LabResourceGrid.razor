@@ -1,0 +1,13 @@
+﻿@page "/LabTestResources"
+@using Services
+@inject LabResourceService resourceService
+<h3>LabResourceGrid</h3>
+
+<TelerikGrid Data="resourceService.LabTestResources" AutoGenerateColumns="true"></TelerikGrid>
+
+@code {
+  protected override async Task OnInitializedAsync()
+  {
+    await resourceService.GetLabTestResources();
+  }
+}

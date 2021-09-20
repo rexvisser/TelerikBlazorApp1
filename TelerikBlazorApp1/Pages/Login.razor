@@ -1,0 +1,68 @@
+﻿@page "/login"
+@using System.ComponentModel.DataAnnotations
+@using System.Dynamic
+@using Services
+@using Innovator.Client;
+@using Innovator.Server;
+@inject NavigationManager navMgr
+@inject ArasConnectionService aras
+
+  <style>
+    /*
+        Styles normally go in a .css file.
+        This is just a simple example to get you started.
+    */
+    .loginForm{
+       width: 175px;
+    }
+  </style>
+
+<h3>Login</h3>
+<div class="loginForm">
+  <TelerikForm Model="@person" OnValidSubmit="ArasLogin" Width="50">
+    <FormValidation>
+      <DataAnnotationsValidator />
+    </FormValidation>
+    <FormItems>
+      <FormItem Field="@nameof(person.UserName)" LabelText="User Name"></FormItem>
+      <FormItem Field="@nameof(person.Password)" LabelText="Password"></FormItem>
+    </FormItems>
+  </TelerikForm>
+  @*<TelerikTextBox type="password" @bind-Value="person.Password"></TelerikTextBox>*@
+</div>
+
+@code {
+
+  public Person person = new Person();
+
+
+
+  public async Task ArasLogin()
+  {
+    var loginStatus = await aras.Login(person.UserName, person.Password);
+
+    if (loginStatus)
+    {
+
+      navMgr.NavigateTo("/LabTestResources");
+
+      //var conn = aras.ArasConnection;
+      //var factory = conn.AmlContext;
+
+      //var items = factory.Item(factory.Type("Lab Test Resource"), factory.Action("get")).Apply(conn).AssertItems();
+    }
+
+
+  }
+
+  public class Person
+  {
+    [Required(ErrorMessage = "User Name is Required.")]
+    [Display(Name = "User Name")]
+    public string UserName { get; set; }
+
+    [Required(ErrorMessage = "You must enter a password.")]
+    [Display(Name = "Password")]
+    public string Password { get; set; }
+  }
+}

@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+  
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Innovator.Client" Version="2020.2.23.1756" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="3.1.19" />
+    <PackageReference Include="Telerik.UI.for.Blazor" Version="2.27.0" />
+  </ItemGroup>
+
+</Project>
