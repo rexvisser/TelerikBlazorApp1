@@ -24,9 +24,11 @@ namespace TelerikBlazorApp1.Services
     /// </summary>
     public string UserId { get; private set; }
 
-    public ArasConnectionService()
+    public ArasConnectionService() : this(new HttpClient()) { }
+
+    public ArasConnectionService(HttpClient client)
     {
-      httpClient = new HttpClient();
+      httpClient = client;
     }
 
     /// <summary>

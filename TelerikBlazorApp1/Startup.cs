@@ -33,8 +33,9 @@ namespace TelerikBlazorApp1
       services.AddScoped<WeatherForecastService>();
       services.AddTelerikBlazor();
       services.AddHttpClient();
-      // services.AddScoped<ArasConnectionService>(sp => new ArasConnectionService(sp.GetRequiredService<IHttpClientFactory>().CreateClient()));
-      services.AddSingleton<ArasConnectionService>();
+
+      // Need to use Scoped rather than Singleton so that many users can use the server at the same time.
+      services.AddScoped<ArasConnectionService>(sp => new ArasConnectionService(sp.GetRequiredService<IHttpClientFactory>().CreateClient()));
       services.AddScoped<LabResourceService>();
     }
 

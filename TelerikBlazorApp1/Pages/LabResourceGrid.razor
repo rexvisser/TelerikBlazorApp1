@@ -1,9 +1,15 @@
 ﻿@page "/LabTestResources"
 @using Services
+@using Models
 @inject LabResourceService resourceService
-<h3>LabResourceGrid</h3>
+<h3>Lab Resource Grid</h3>
 
-<TelerikGrid Data="resourceService.LabTestResources" AutoGenerateColumns="true"></TelerikGrid>
+<TelerikGrid Data="resourceService.LabTestResources" AutoGenerateColumns="false" Sortable="true" FilterMode="GridFilterMode.FilterMenu">
+  <GridColumns>
+    <GridColumn Field="@(nameof(LabTestResource.Name))" Title="Name" />
+    <GridColumn Field="@(nameof(LabTestResource.Type))" Title="Type"/>
+  </GridColumns>
+</TelerikGrid>
 
 @code {
   protected override async Task OnInitializedAsync()

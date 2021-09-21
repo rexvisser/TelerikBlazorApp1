@@ -4,7 +4,6 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
-using Microsoft.Extensions.DependencyInjection;
 using TelerikBlazorApp1.Models;
 using Innovator.Client;
 
@@ -15,16 +14,18 @@ namespace TelerikBlazorApp1.Services
   /// </summary>
   public class LabResourceService
   {
+    private NavigationManager navMgr;
 
-    public LabResourceService(ArasConnectionService connectionService)
+    public LabResourceService(ArasConnectionService connectionService, NavigationManager navigationManager)
     {
-      aras = connectionService;
+      Aras = connectionService;
+      navMgr = navigationManager;
     }
 
     /// <summary>
     /// The reference to the Aras DataBase
     /// </summary>
-    public ArasConnectionService aras { get; set; }
+    public ArasConnectionService Aras { get; set; }
 
     /// <summary>
     /// List of Lab Test Resources.
@@ -34,12 +35,14 @@ namespace TelerikBlazorApp1.Services
 
     public async Task<int> GetLabTestResources()
     {
-      if (string.IsNullOrEmpty(aras.UserId))
+      if (string.IsNullOrEmpty(Aras.UserId))
       {
-        await aras.Login("rex.visser", "Mobile146").ConfigureAwait(false);
+        //await Aras.Login("rex.visser", "rrr").ConfigureAwait(false);
+        navMgr.NavigateTo("/login");
+        return 0;
       }
 
-      var conn = aras.ArasConnection;
+      var conn = Aras.ArasConnection;
       var factory = conn.AmlContext;
 
       var resourceItems = factory.Item(factory.Type("Lab Test Resource"), factory.Action("get")).Apply(conn).AssertItems();

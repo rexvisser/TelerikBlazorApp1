@@ -7,33 +7,30 @@
 @inject NavigationManager navMgr
 @inject ArasConnectionService aras
 
-  <style>
-    /*
+<style>
+  /*
         Styles normally go in a .css file.
         This is just a simple example to get you started.
     */
-    .loginForm{
-       width: 175px;
-    }
-  </style>
+  .loginForm {
+    width: 175px;
+  }
+</style>
 
 <h3>Login</h3>
-<div class="loginForm">
-  <TelerikForm Model="@person" OnValidSubmit="ArasLogin" Width="50">
-    <FormValidation>
-      <DataAnnotationsValidator />
-    </FormValidation>
-    <FormItems>
-      <FormItem Field="@nameof(person.UserName)" LabelText="User Name"></FormItem>
-      <FormItem Field="@nameof(person.Password)" LabelText="Password"></FormItem>
-    </FormItems>
-  </TelerikForm>
-  @*<TelerikTextBox type="password" @bind-Value="person.Password"></TelerikTextBox>*@
+<div>
+  <TelerikTextBox Label="User Name" @bind-Value="person.UserName"></TelerikTextBox>
+  <TelerikTextBox Password="true" Label="Password" @bind-Value="person.Password"></TelerikTextBox>
 </div>
+<br />
+<TelerikButton OnClick="ArasLogin">Submit</TelerikButton>
 
 @code {
 
   public Person person = new Person();
+
+  [CascadingParameter]
+  public DialogFactory Dialogs { get; set; }
 
 
 
@@ -43,13 +40,11 @@
 
     if (loginStatus)
     {
-
-      navMgr.NavigateTo("/LabTestResources");
-
-      //var conn = aras.ArasConnection;
-      //var factory = conn.AmlContext;
-
-      //var items = factory.Item(factory.Type("Lab Test Resource"), factory.Action("get")).Apply(conn).AssertItems();
+      navMgr.NavigateTo("/lims");
+    }
+    else
+    {
+      await Dialogs.AlertAsync("Login Failed!", "Login");
     }
 
 
