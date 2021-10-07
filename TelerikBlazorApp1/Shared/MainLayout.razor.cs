@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Components;
 using Telerik.Blazor.Components;
 
 namespace TelerikBlazorApp1.Shared
@@ -16,10 +17,13 @@ namespace TelerikBlazorApp1.Shared
         new List<DrawerItem>
         {
         new DrawerItem {Text = "LIMS", Icon="plus", Url="/lims"},
-        new DrawerItem {Text = "Proto +", Icon="grid-layout", Url="/login"}
+        new DrawerItem {Text = "Proto +", Icon="grid-layout", Url="/protoplus"},
+        new DrawerItem {Text = "Resources", Icon="grid-layout", Url = "/LabTestResources"}
         };
 
     TelerikDrawer<DrawerItem> DrawerRef { get; set; }
+
+    private bool IsMenuVisible { get; set; } = false;
 
     private DrawerItem SelectedItem
     {

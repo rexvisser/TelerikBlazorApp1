@@ -1,4 +1,4 @@
-﻿@page "/login"
+﻿@page "/"
 @using System.ComponentModel.DataAnnotations
 @using System.Dynamic
 @using Services
@@ -24,6 +24,7 @@
 </div>
 <br />
 <TelerikButton OnClick="ArasLogin">Submit</TelerikButton>
+<TelerikButton OnClick="NavigateOnly">Skip</TelerikButton>
 
 @code {
 
@@ -40,14 +41,17 @@
 
     if (loginStatus)
     {
-      navMgr.NavigateTo("/lims");
+      navMgr.NavigateTo("/mainpage");
     }
     else
     {
       await Dialogs.AlertAsync("Login Failed!", "Login");
     }
+  }
 
-
+  private void NavigateOnly()
+  {
+    navMgr.NavigateTo("/mainpage");
   }
 
   public class Person

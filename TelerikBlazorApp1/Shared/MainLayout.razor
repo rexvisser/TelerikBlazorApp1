@@ -3,20 +3,22 @@
 @inherits LayoutComponentBase
 
 <div class="main">
-  <div class="drawer-container">
     <div class="custom-toolbar">
-      <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="menu" Class="k-flat">Modules</TelerikButton>
-    </div>
-    <TelerikDrawer Data="@Data"
-                   MiniMode="true"
-                   Mode="DrawerMode.Push"
-                   @bind-Expanded="DrawerExpanded"
-                   @bind-SelectedItem="@SelectedItem"
-                   @ref="@DrawerRef">
-      <Content>
-        @Body
-      </Content>
-    </TelerikDrawer>
-  </div>
+        <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="menu" Class="k-flat">CT +</TelerikButton>
+        </div>
+      <TelerikDrawer Data="@Data"
+          MiniMode="true"
+          Mode="DrawerMode.Push"
+          @bind-Expanded="DrawerExpanded"
+          @bind-SelectedItem="@SelectedItem"
+          @ref="@DrawerRef">
+
+          <Content>
+            <div style="width: 90%">
+              @Body
+            </div>
+          </Content>
+
+</TelerikDrawer>
 
 </div>
