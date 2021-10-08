@@ -1,0 +1,25 @@
+﻿@page "/labtest"
+@layout MainLayout
+@using Models
+@using Innovator.Client;
+@using TelerikBlazorApp1.Components
+<h3>Lab Test</h3>
+<p />
+<ItemTextbox ItemType="Lab Test" PropertyName="test_id" OnItemUpdate="handleOnItemUpdate" />
+<p />
+<TelerikTextBox Enabled="false" Value="@TestName"  Width="500px" Label="Test Name"/>
+
+@code {
+  private IReadOnlyItem LabTestItem;
+
+  private void handleOnItemUpdate(IReadOnlyItem item)
+  {
+    LabTestItem = item;
+  }
+
+  public string TestName
+    {
+      get => LabTestItem?.Property("test_name").AsString(string.Empty);
+    }
+
+}

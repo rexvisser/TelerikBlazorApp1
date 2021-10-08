@@ -18,7 +18,8 @@ namespace TelerikBlazorApp1.Shared
         {
         new DrawerItem {Text = "LIMS", Icon="plus", Url="/lims"},
         new DrawerItem {Text = "Proto +", Icon="grid-layout", Url="/protoplus"},
-        new DrawerItem {Text = "Resources", Icon="grid-layout", Url = "/LabTestResources"}
+        new DrawerItem {Text = "Resources", Icon="grid-layout", Url = "/LabTestResources"},
+        new DrawerItem {Text = "Lab Test", Icon="plus", Url ="/labtest"}
         };
 
     TelerikDrawer<DrawerItem> DrawerRef { get; set; }

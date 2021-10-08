@@ -1,0 +1,46 @@
+﻿@using Innovator.Client
+@using TelerikBlazorApp1.Services
+@inject ItemLookupService itemLookupService
+
+<TelerikTextBox Value="@propertyValue" Label="Lab Test Number" OnChange="OnChangeHandler" />
+
+
+@code {
+  private string propertyValue
+  {
+    get => Item?.Property(PropertyName).AsString(string.Empty);
+  }
+
+  /// <summary>
+  /// Callback that fires when the Item property is updated.
+  /// </summary>
+  [Parameter]
+  public EventCallback<IReadOnlyItem> OnItemUpdate { get; set; }
+
+  /// <summary>
+  /// The Item that contains the property being displayed.
+  /// </summary>
+  public IReadOnlyItem Item { get; set; }
+
+  /// <summary>
+  /// The Item type of the Item.
+  /// </summary>
+  [Parameter]
+  public string ItemType { get; set; }
+
+  /// <summary>
+  /// The property on the Item to display in the Text Box and to use for looking up the Item.
+  /// </summary>
+  [Parameter]
+  public string PropertyName { get; set; }
+
+
+  private void OnChangeHandler(object theUserInput)
+  {
+    if (!string.IsNullOrEmpty(ItemType) && !string.Equals((string)theUserInput, propertyValue))
+    {
+      Item = itemLookupService.GetItem(ItemType, PropertyName, (string)theUserInput);
+      OnItemUpdate.InvokeAsync(Item);
+    }
+  }
+}

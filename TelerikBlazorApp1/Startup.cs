@@ -37,6 +37,7 @@ namespace TelerikBlazorApp1
       // Need to use Scoped rather than Singleton so that many users can use the server at the same time.
       services.AddScoped<ArasConnectionService>(sp => new ArasConnectionService(sp.GetRequiredService<IHttpClientFactory>().CreateClient()));
       services.AddScoped<LabResourceService>();
+      services.AddScoped<ItemLookupService>();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
