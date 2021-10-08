@@ -2,7 +2,7 @@
 @using TelerikBlazorApp1.Services
 @inject ItemLookupService itemLookupService
 
-<TelerikTextBox Value="@propertyValue" Label="Lab Test Number" OnChange="OnChangeHandler" />
+<TelerikTextBox Value="@propertyValue" OnChange="OnChangeHandler" PlaceHolder="@Placeholder" Enabled="@Enabled"/>
 
 
 @code {
@@ -18,6 +18,12 @@
   public EventCallback<IReadOnlyItem> OnItemUpdate { get; set; }
 
   /// <summary>
+  /// Is input enabled.
+  /// </summary>
+  [Parameter]
+  public bool Enabled { get; set; }
+
+  /// <summary>
   /// The Item that contains the property being displayed.
   /// </summary>
   public IReadOnlyItem Item { get; set; }
@@ -27,6 +33,9 @@
   /// </summary>
   [Parameter]
   public string ItemType { get; set; }
+
+  [Parameter]
+  public string Placeholder { get; set; }
 
   /// <summary>
   /// The property on the Item to display in the Text Box and to use for looking up the Item.

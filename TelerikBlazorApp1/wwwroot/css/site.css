@@ -107,3 +107,7 @@ a, .btn-link {
   padding: 3px 8px;
   color: #656565;
 }
+
+.cell-outlined {
+  border: 2px white solid
+}
