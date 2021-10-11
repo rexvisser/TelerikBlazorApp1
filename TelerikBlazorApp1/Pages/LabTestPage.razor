@@ -62,7 +62,7 @@
           </GridLayoutItem>
           <GridLayoutItem Row="3" Column="2" ColumnSpan="5">
             <div class="cell-outlined">
-              <TelerikTextBox Enabled="false" Value="@TestName" PlaceHolder="Test Name" />
+              <TelerikTextBox Enabled="false" Value="@LabTestItem.TestName" PlaceHolder="Test Name" />
             </div>
           </GridLayoutItem>
           <GridLayoutItem Row="3" Column="7">
@@ -199,24 +199,11 @@
 
 
 
-
-
-
-
-
-
-
 @code {
-  private IReadOnlyItem LabTestItem;
+  private LabTestModel LabTestItem = new LabTestModel(null);
 
   private void handleOnItemUpdate(IReadOnlyItem item)
   {
-    LabTestItem = item;
+    LabTestItem = new LabTestModel(item);
   }
-
-  public string TestName
-  {
-    get => LabTestItem?.Property("test_name").AsString(string.Empty);
-  }
-
 }
