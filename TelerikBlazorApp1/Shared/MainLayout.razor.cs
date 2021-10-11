@@ -16,10 +16,11 @@ namespace TelerikBlazorApp1.Shared
     IEnumerable<DrawerItem> Data { get; set; } =
         new List<DrawerItem>
         {
-        new DrawerItem {Text = "LIMS", Icon="plus", Url="/lims"},
-        new DrawerItem {Text = "Proto +", Icon="grid-layout", Url="/protoplus"},
-        new DrawerItem {Text = "Resources", Icon="grid-layout", Url = "/LabTestResources"},
-        new DrawerItem {Text = "Lab Test", Icon="plus", Url ="/labtest"}
+          new DrawerItem {Text="Home", Icon="home", Url="MainPage"},
+          new DrawerItem {Text = " LIMS", ImageUrl="./images/TestRound32.png", Url="/lims"},
+          new DrawerItem {Text = " Proto +", ImageUrl="./images/ProtoOrder32.png", Url="/protoplus",},
+          new DrawerItem {Text = " Resources", Icon="grid-layout", Url = "/LabTesourceGrid"},
+          new DrawerItem {Text = " Lab Test", ImageUrl="./images/LabTest32.png", Url ="/labtest"}
         };
 
     TelerikDrawer<DrawerItem> DrawerRef { get; set; }
@@ -45,5 +46,6 @@ namespace TelerikBlazorApp1.Shared
     public string Icon { get; set; }
     public string Url { get; set; }
     public bool IsSeparator { get; set; }
+    public string ImageUrl { get; set; }
   }
 }

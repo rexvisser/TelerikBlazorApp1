@@ -9,5 +9,20 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="3.1.19" />
     <PackageReference Include="Telerik.UI.for.Blazor" Version="2.27.0" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Include="wwwroot\images\LabTest16.png" />
+    <None Include="wwwroot\images\LabTest32.png" />
+    <None Include="wwwroot\images\ProtoOrder16.png" />
+    <None Include="wwwroot\images\ProtoOrder32.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="wwwroot\images\TestRound16.png" />
+    <None Include="wwwroot\images\TestRound32.png" />
+  </ItemGroup>
 
 </Project>
