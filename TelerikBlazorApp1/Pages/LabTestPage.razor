@@ -73,7 +73,7 @@
           </GridLayoutItem>
           <GridLayoutItem Row="3" Column="8">
             <div class="cell-outlined">
-              <ItemTextbox ItemType="Lab Test"  PropertyName="test_id" OnItemUpdate="handleOnItemUpdate" Placeholder="Test Id" Enabled="true"/>
+              <ItemTextbox ItemType="Lab Test" PropertyName="test_id" OnItemUpdate="handleOnItemUpdate" Placeholder="Test Id" Enabled="true" />
             </div>
           </GridLayoutItem>
 
@@ -82,7 +82,7 @@
           </GridLayoutItem>
           <GridLayoutItem Row="4" Column="2" ColumnSpan="5" RowSpan="2">
             <div class="cell-outlined">
-              <TelerikTextArea PlaceHolder="Description" Width="100%" Enabled="false" Value="@LabTestItem.TestDescription"></TelerikTextArea>
+              <TelerikTextArea PlaceHolder="Description" Width="100%" Value="@LabTestItem.TestDescription"></TelerikTextArea>
             </div>
           </GridLayoutItem>
           <GridLayoutItem Row="4" Column="7">
@@ -129,7 +129,8 @@
           </GridLayoutItem>
           <GridLayoutItem Row="7" Column="8">
             <div class="cell-outlined">
-              <TelerikTextBox PlaceHolder="PCT" Value="@LabTestItem.TestLab" ></TelerikTextBox>
+              @*<TelerikTextBox PlaceHolder="PCT" Value="@LabTestItem.TestLab" ></TelerikTextBox>*@
+              <ListComboBox ListId="9810C04888A54B58AE965AD0F747340E" />
             </div>
           </GridLayoutItem>
 
@@ -193,16 +194,26 @@
 
         </GridLayoutItems>
       </TelerikGridLayout>
-      </SplitterPane>
+    </SplitterPane>
     <SplitterPane>
-      <div>The Tab strip goes here.</div>
+      <TelerikTabStrip TabPosition="TabPosition.Top" ActiveTabIndex="6">
+        <TabStripTab Title="Documents" />
+        <TabStripTab Title="Related Parts" />
+        <TabStripTab Title="Samples" />
+        <TabStripTab Title="Considerations" />
+        <TabStripTab Title="Concerns" />
+        <TabStripTab Title="Quote" />
+        <TabStripTab Title="Status">
+          <div style="height:400px;">
+            <TelerikTextArea Width="100%" Value="... Some information about the status of the Lab Test ..." />
+          </div>
+        </TabStripTab>
+        <TabStripTab Title="Attributes" />
+        <TabStripTab Title="Schedule" />
+      </TelerikTabStrip>
     </SplitterPane>
   </SplitterPanes>
 </TelerikSplitter>
-
-
-
-
 
 
 @code {
@@ -211,5 +222,6 @@
   private void handleOnItemUpdate(IReadOnlyItem item)
   {
     LabTestItem = new LabTestModel(item);
+
   }
 }

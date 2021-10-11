@@ -40,5 +40,23 @@ namespace TelerikBlazorApp1.Services
 
       return null;
     }
+
+    public IEnumerable<IReadOnlyItem> GetItems(string itemType, string propertyName, string propertyValue)
+    {
+      if (string.IsNullOrEmpty(Aras.UserId))
+      {
+        navMgr.NavigateTo("/");
+        return null;
+      }
+
+      var conn = Aras.ArasConnection;
+      var factory = conn.AmlContext;
+      if (!string.IsNullOrEmpty(itemType) && !string.IsNullOrEmpty(propertyName) && !string.IsNullOrEmpty(propertyValue))
+      {
+        return factory.Item(factory.Type(itemType), factory.Action("get"), factory.Property(propertyName, propertyValue)).Apply(conn).Items();
+      }
+
+      return null;
+    }
   }
 }

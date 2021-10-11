@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelerikBlazorApp1", "TelerikBlazorApp1\TelerikBlazorApp1.csproj", "{A141A431-DD50-4697-B7F4-BAF2328F2171}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{DFD7D2A7-7BFA-418D-A65D-A226C07F87A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{A141A431-DD50-4697-B7F4-BAF2328F2171}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A141A431-DD50-4697-B7F4-BAF2328F2171}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A141A431-DD50-4697-B7F4-BAF2328F2171}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFD7D2A7-7BFA-418D-A65D-A226C07F87A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFD7D2A7-7BFA-418D-A65D-A226C07F87A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFD7D2A7-7BFA-418D-A65D-A226C07F87A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFD7D2A7-7BFA-418D-A65D-A226C07F87A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
