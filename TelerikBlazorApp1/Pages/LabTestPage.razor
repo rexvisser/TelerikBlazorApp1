@@ -42,11 +42,14 @@
           </GridLayoutItem>
           <GridLayoutItem Row="2" Column="2" ColumnSpan="4">
             <div class="cell-outlined">
-              <TelerikTextBox PlaceHolder="Based on" Enabled="false"></TelerikTextBox>
+              <TelerikTextBox PlaceHolder="Based on" Width="100%" Enabled="false"></TelerikTextBox>
             </div>
           </GridLayoutItem>
           <GridLayoutItem Row="2" Column="6">
-            <div class="cell-outlined">Lab Controlled Checkbox here</div>
+            <div class="cell-outlined">
+              <TelerikCheckBox Id="labcontrolledcb" Value="@LabTestItem.DocumentSpecLabCtrl" />
+              <label for="labcontrolledcb">Lab Controlled</label>
+            </div>
           </GridLayoutItem>
           <GridLayoutItem Row="2" Column="7">
             <div class="cell-outlined">Section</div>
@@ -62,7 +65,7 @@
           </GridLayoutItem>
           <GridLayoutItem Row="3" Column="2" ColumnSpan="5">
             <div class="cell-outlined">
-              <TelerikTextBox Enabled="false" Value="@LabTestItem.TestName" PlaceHolder="Test Name" />
+              <TelerikTextBox Enabled="false" Width="100%" Value="@LabTestItem.TestName" PlaceHolder="Test Name" />
             </div>
           </GridLayoutItem>
           <GridLayoutItem Row="3" Column="7">
@@ -70,7 +73,7 @@
           </GridLayoutItem>
           <GridLayoutItem Row="3" Column="8">
             <div class="cell-outlined">
-              <ItemTextbox ItemType="Lab Test" PropertyName="test_id" OnItemUpdate="handleOnItemUpdate" Placeholder="Test Id" Enabled="true"/>
+              <ItemTextbox ItemType="Lab Test"  PropertyName="test_id" OnItemUpdate="handleOnItemUpdate" Placeholder="Test Id" Enabled="true"/>
             </div>
           </GridLayoutItem>
 
@@ -79,7 +82,7 @@
           </GridLayoutItem>
           <GridLayoutItem Row="4" Column="2" ColumnSpan="5" RowSpan="2">
             <div class="cell-outlined">
-              <TelerikTextArea PlaceHolder="Description" Enabled="false"></TelerikTextArea>
+              <TelerikTextArea PlaceHolder="Description" Width="100%" Enabled="false" Value="@LabTestItem.TestDescription"></TelerikTextArea>
             </div>
           </GridLayoutItem>
           <GridLayoutItem Row="4" Column="7">
@@ -87,7 +90,7 @@
           </GridLayoutItem>
           <GridLayoutItem Row="4" Column="8">
             <div class="cell-outlined">
-              <TelerikTextBox PlaceHolder="Plan" Enabled="false"></TelerikTextBox>
+              <TelerikTextBox PlaceHolder="Plan" Enabled="false" Value="@LabTestItem.State"></TelerikTextBox>
             </div>
           </GridLayoutItem>
 
@@ -108,15 +111,14 @@
           </GridLayoutItem>
           <GridLayoutItem Row="6" Column="2" ColumnSpan="5" RowSpan="2">
             <div class="cell-outlined">
-              <TelerikTextArea PlaceHolder="Criteria"></TelerikTextArea>
+              <TelerikTextArea PlaceHolder="Criteria" Width="100%" Value="@LabTestItem.TestAcceptanceCriteria"></TelerikTextArea>
             </div>
           </GridLayoutItem>
           <GridLayoutItem Row="6" Column="7">
             <div class="cell-outlined">Department</div>
           </GridLayoutItem>
           <GridLayoutItem Row="6" Column="8">
-            <div class="cell-outlined"> Corporate Labs
-            </div>
+            <div class="cell-outlined">Corporate Labs</div>
           </GridLayoutItem>
 
           <GridLayoutItem Row="7" Column="1">
@@ -126,7 +128,9 @@
             <div class="cell-outlined">Lab Location</div>
           </GridLayoutItem>
           <GridLayoutItem Row="7" Column="8">
-            <div class="cell-outlined">PCT</div>
+            <div class="cell-outlined">
+              <TelerikTextBox PlaceHolder="PCT" Value="@LabTestItem.TestLab" ></TelerikTextBox>
+            </div>
           </GridLayoutItem>
 
           <GridLayoutItem Row="8" Column="1">
@@ -134,7 +138,7 @@
           </GridLayoutItem>
           <GridLayoutItem Row="8" Column="2" ColumnSpan="5" RowSpan="2">
             <div class="cell-outlined">
-              <TelerikTextArea PlaceHolder="Special Instructions"></TelerikTextArea>
+              <TelerikTextArea PlaceHolder="Special Instructions" Width="100%"></TelerikTextArea>
             </div>
           </GridLayoutItem>
           <GridLayoutItem Row="8" Column="7">
@@ -151,7 +155,9 @@
             <div class="cell-outlined">Test Category</div>
           </GridLayoutItem>
           <GridLayoutItem Row="9" Column="8">
-            <div class="cell-outlined">cat</div>
+            <div class="cell-outlined">
+              <TelerikTextBox PlaceHolder="category" Value="@LabTestItem.TestCategory" />
+            </div>
           </GridLayoutItem>
 
           <GridLayoutItem Row="10" Column="1">
